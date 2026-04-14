@@ -134,48 +134,81 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* --- ABOUT EDITORIAL --- (Grid Layout with Image) */}
-      <section className="relative py-24 md:py-48 px-6 md:px-12 w-full max-w-[1800px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
-          
-          <div className="lg:col-span-6 flex flex-col justify-center order-2 lg:order-1 relative z-10">
-            <motion.p 
-              initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-10%" }} transition={{ duration: 1 }}
-              className="text-xs uppercase tracking-widest font-semibold text-[#0A0A0A]/50 mb-4"
-            >
-              Since Inception
-            </motion.p>
-            <RevealText 
-              text="Elevating the everyday errand into an experience of discovery."
-              className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-[#0A0A0A] tracking-[-0.02em] mb-6 max-w-xl"
-            />
+      {/* --- CREATIVE AWWWARDS EDITORIAL --- */}
+      <section className="relative py-32 md:py-48 px-6 md:px-12 w-full max-w-[1800px] mx-auto border-t border-black/5 mt-20">
+        
+        {/* TOP ROW: Massive Inline Media Typography */}
+        <div className="mb-24 lg:mb-40 flex flex-col lg:flex-row">
+           <div className="hidden lg:flex w-1/4 flex-col justify-between items-start pt-6 border-t border-black md:mr-16">
+              <span className="text-[11px] uppercase tracking-[0.2em] font-semibold flex items-center gap-3">
+                <div className="w-2 h-2 bg-[#C0F235] rounded-full animate-pulse" />
+                The Vision
+              </span>
+              <div className="w-16 h-16 rounded-full border border-black/10 flex items-center justify-center animate-[spin_10s_linear_infinite]">
+                 <span className="text-[9px] font-semibold uppercase tracking-widest text-center leading-none text-[#0A0A0A]/40">Est<br/>2024</span>
+              </div>
+           </div>
+
+           <div className="w-full lg:w-3/4 font-serif text-[13vw] lg:text-[7.5vw] leading-[0.95] tracking-[-0.03em] flex flex-wrap items-center">
+               <motion.span initial={{opacity:0, y:40}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.8}}>Elevating the </motion.span> 
+               
+               {/* Inline Image */}
+               <motion.span 
+                 initial={{scale: 0.8, opacity:0}} whileInView={{scale: 1, opacity:1}} viewport={{once:true}} transition={{duration:1, delay:0.2}}
+                 className="inline-block w-[22vw] lg:w-[14vw] h-[10vw] lg:h-[6vw] mx-3 lg:mx-6 rounded-full overflow-hidden align-middle relative transition-all duration-700"
+               >
+                 <Image src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=500" alt="Produce" fill className="object-cover" unoptimized/>
+               </motion.span>
+               
+               <motion.span initial={{opacity:0, y:40}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.8, delay: 0.1}}>everyday errand into an </motion.span>
+               
+               {/* Inline Button/Pill */}
+               <motion.span 
+                 initial={{opacity:0, rotate:-10}} whileInView={{opacity:1, rotate:0}} viewport={{once:true}} transition={{duration:0.6, delay:0.3}}
+                 className="inline-flex items-center justify-center px-6 lg:px-8 h-[10vw] lg:h-[6vw] mx-3 lg:mx-6 rounded-full border-2 border-[#C0F235] bg-[#C0F235] align-middle text-sm md:text-xl uppercase tracking-[0.2em] font-sans italic text-black hover:bg-black hover:border-black hover:text-[#C0F235] hover:-rotate-6 hover:scale-105 transition-all duration-300 cursor-crosshair shadow-lg"
+               >
+                  Experience
+               </motion.span>
+               
+               <motion.span initial={{opacity:0, y:40}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.8, delay: 0.2}}> of discovery.</motion.span>
+           </div>
+        </div>
+
+        {/* BOTTOM ROW: Text Paragraph & Large Editorial Image */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-end">
             
-            <motion.div 
-              initial={{ opacity:0, y:30 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true, margin:"-10%" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-base md:text-lg font-light leading-[1.6] text-[#0A0A0A]/70 max-w-xl mb-8 md:mb-10"
-            >
-              <p>
-                We believe a supermarket shouldn't just be a chore. It should be a curation of excellence. At Souq Ayaj, we meticulously source our produce, meats, and pantry staples to ensure you bring home nothing but the finest quality available in Kuwait.
-              </p>
-            </motion.div>
+            {/* 4 columns: The "We Believe" paragraph */}
+            <div className="lg:col-span-5 lg:col-start-2 flex flex-col justify-end pb-8">
+               <motion.div initial={{opacity:0, x:-20}} whileInView={{opacity:1, x:0}} viewport={{once:true}} transition={{duration:0.8}}>
+                 <p className="text-xl md:text-3xl font-light leading-[1.6] text-[#0A0A0A]/90 mb-12">
+                    We believe a supermarket shouldn't just be a chore. It should be a curation of excellence. At Souq Ayaj, we meticulously source our produce, meats, and pantry staples to ensure you bring home nothing but the finest quality available in Kuwait.
+                 </p>
+                 <a href="#order" className="group w-max inline-flex items-center gap-4 text-xs md:text-sm font-bold tracking-widest uppercase pb-2 border-b-2 border-black hover:border-transparent transition-all relative overflow-hidden">
+                   <span className="relative z-10 group-hover:text-black transition-colors">Start Discovery</span>
+                   <div className="absolute inset-0 bg-[#C0F235] translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
+                   <ArrowUpRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                 </a>
+               </motion.div>
+            </div>
 
-            <a href="#order" className="group w-max inline-flex items-center gap-4 text-sm font-semibold tracking-widest uppercase pb-2 border-b border-black/20 hover:border-black transition-all">
-              Discover Quality <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </a>
-          </div>
-
-          {/* Immersive Awwwards-style Parallax Image */}
-          <div className="lg:col-span-6 relative aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] w-full rounded-[2rem] overflow-hidden order-1 lg:order-2 shadow-2xl">
-            <Image 
-              src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2874&auto=format&fit=crop" 
-              alt="Souq Ayaj Interior" 
-              fill 
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out" 
-              unoptimized
-            />
-          </div>
+            {/* 6 columns: Beautiful Image */}
+            <div className="lg:col-span-5 lg:col-start-8 relative aspect-[4/5] rounded-[2rem] overflow-hidden group">
+               <Image 
+                 src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2874&auto=format&fit=crop" 
+                 alt="Souq Ayaj Interior" 
+                 fill 
+                 sizes="(max-width: 1024px) 100vw, 50vw"
+                 className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out" 
+                 unoptimized
+               />
+               <div className="absolute inset-0 border border-white/20 rounded-[2rem] pointer-events-none" />
+               <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end mix-blend-difference text-white">
+                  <span className="text-xs font-semibold tracking-widest uppercase">Shuwaikh Industrial</span>
+                  <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+               </div>
+            </div>
 
         </div>
       </section>
@@ -275,7 +308,7 @@ export default function Home() {
            <div className="md:w-1/2 flex flex-col gap-12">
              <div className="w-full aspect-[4/3] md:aspect-[2/1] bg-white/5 rounded-3xl overflow-hidden relative group saturate-0 hover:saturate-100 transition-all duration-700">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111244.52044878072!2d47.88764032128711!3d29.35161042781488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf84ba2f489b4b%3A0xe54ef5f6b2cbdcd3!2sShuwaikh%20Industrial%2C%20Kuwait!5e0!3m2!1sen!2smy!4v1714412312312!5m2!1sen!2smy" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3478.435!2d47.9319032!3d29.3233127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9b002bd24a37%3A0x281723f0690601c1!2sSouq%20Ayaj!5e0!3m2!1sen!2sus!4v1714412312312!5m2!1sen!2sus" 
                   className="w-full h-full border-0 absolute inset-0" 
                   allowFullScreen={false} 
                   loading="lazy" 
