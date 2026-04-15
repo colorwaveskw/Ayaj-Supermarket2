@@ -215,7 +215,7 @@ export default function Home() {
       </section>
 
       {/* --- INTERACTIVE CATEGORY SHOWCASE --- (Hover to reveal bg) */}
-      <section className="relative py-20 md:py-32  bg-[#0A0A0A] text-[#FAF9F6] h-[100svh] min-h-[600px] md:min-h-[800px] flex flex-col justify-center overflow-hidden">
+      <section className="relative py-20 md:py-32  bg-[#0A0A0A] text-[#FAF9F6] h-[120svh] min-h-[600px] md:min-h-[800px] flex flex-col justify-center overflow-hidden">
 
         {/* Dynamic Backgrounds based on hover */}
         {products.map((item, i) => (
