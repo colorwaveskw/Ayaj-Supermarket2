@@ -120,12 +120,12 @@ export default function Home() {
 
           <motion.div className="relative z-10 flex flex-col items-center justify-center text-center text-white" style={{ y: textY, opacity: heroOpacity }}>
             <span className="text-xs md:text-sm uppercase tracking-[0.5em] mb-6 md:mb-10 font-bold mix-blend-overlay">Your Trusted Supermarket</span>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden px-4 md:px-8">
               <motion.h1
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                className="font-serif text-[16vw] md:text-[14vw] leading-[0.8] tracking-[-0.04em] m-0 drop-shadow-2xl"
+                className="font-serif text-[16vw] md:text-[14vw] leading-[0.8] tracking-[-0.04em] m-0 drop-shadow-2xl pt-4 pb-10"
               >
                 Souq <span className="italic font-light text-[#C0F235] pr-4">Ayaj</span>
               </motion.h1>
@@ -288,14 +288,9 @@ export default function Home() {
           <a href="https://wa.me/96550616174" className="group bg-[#0A0A0A] text-white px-10 py-6 rounded-full flex items-center justify-center gap-4 text-sm md:text-base uppercase tracking-widest font-semibold hover:bg-[#C0F235] hover:text-[#0A0A0A] transition-all duration-300">
             <MessageCircleIcon className="w-5 h-5 group-hover:scale-110 transition-transform" /> WhatsApp Us
           </a>
-          <div className="flex gap-4 sm:gap-6 justify-center">
-            <a href="tel:+96550616174" className="group bg-transparent border border-[#0A0A0A]/20 text-[#0A0A0A] px-6 py-6 rounded-full flex items-center justify-center gap-3 text-sm md:text-base uppercase tracking-widest font-semibold hover:border-[#0A0A0A] transition-all duration-300">
-              <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform" /> +965 50...
-            </a>
-            <a href="tel:+96597863767" className="group bg-transparent border border-[#0A0A0A]/20 text-[#0A0A0A] px-6 py-6 rounded-full flex items-center justify-center gap-3 text-sm md:text-base uppercase tracking-widest font-semibold hover:border-[#0A0A0A] transition-all duration-300">
-              <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform" /> +965 97...
-            </a>
-          </div>
+          <a href="tel:+96550616174" className="group bg-transparent border border-[#0A0A0A]/20 text-[#0A0A0A] px-10 py-6 rounded-full flex items-center justify-center gap-4 text-sm md:text-base uppercase tracking-widest font-semibold hover:border-[#0A0A0A] transition-all duration-300">
+            <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform" /> Call Directly
+          </a>
         </div>
       </section>
 
@@ -380,11 +375,10 @@ function RevealText({ text, className }: { text: string, className: string }) {
 }
 
 const products = [
-  { title: "Essential", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop" },
-  { title: "Meats", img: "https://images.unsplash.com/photo-1607623273574-73dc4ec5b934?q=80&w=2000&auto=format&fit=crop" },
-  { title: "Dairy", img: "https://images.unsplash.com/photo-1628088062854-d1870b4553da?q=80&w=2000&auto=format&fit=crop" },
-  { title: "Grains", img: "https://images.unsplash.com/photo-1599599810694-b5b37304c041?q=80&w=2000&auto=format&fit=crop" },
-  { title: "Pantry", img: "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?q=80&w=2000&auto=format&fit=crop" },
-  { title: "Sweets", img: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?q=80&w=2000&auto=format&fit=crop" },
-
+  { title: "Essential", img: "https://images.pexels.com/photos/17556935/pexels-photo-17556935.jpeg?auto=compress&cs=tinysrgb&w=2000" },
+  { title: "Meats", img: "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=2000" },
+  { title: "Dairy", img: "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=2000" },
+  { title: "Grains", img: "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=2000" },
+  { title: "Pantry", img: "https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=2000" },
+  { title: "Sweets", img: "https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&w=2000" },
 ];
