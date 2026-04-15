@@ -214,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* --- INTERACTIVE CATEGORY SHOWCASE --- (Hover to reveal bg) */}
-      <section className="relative py-32 bg-[#0A0A0A] text-[#FAF9F6] h-[100svh] min-h-[800px] flex flex-col justify-center overflow-hidden">
+      <section className="relative py-20 md:py-32 bg-[#0A0A0A] text-[#FAF9F6] h-[100svh] min-h-[600px] md:min-h-[800px] flex flex-col justify-center overflow-hidden">
         
         {/* Dynamic Backgrounds based on hover */}
         {products.map((item, i) => (
@@ -235,15 +235,19 @@ export default function Home() {
                 key={item.title}
                 onMouseEnter={() => setHoveredCategory(i)}
                 onMouseLeave={() => setHoveredCategory(null)}
-                className="w-full flex justify-center py-4 border-b border-white/5 last:border-none cursor-pointer group"
+                onClick={() => setHoveredCategory(hoveredCategory === i ? null : i)}
+                className={`w-full flex justify-center py-6 md:py-4 border-b border-white/10 md:border-white/5 last:border-none cursor-pointer group ${hoveredCategory === i ? 'active' : ''}`}
               >
-                <div className="flex items-center justify-between w-full max-w-4xl px-6 md:px-0 transition-transform duration-500 group-hover:scale-[1.02]">
-                   <span className="font-serif italic text-xl md:text-3xl text-white/20 group-hover:text-[#C0F235] transition-colors duration-500">{(i+1).toString().padStart(2, '0')}</span>
-                   <h3 className="font-serif text-[10vw] md:text-8xl tracking-tight text-transparent bg-clip-text text-outline group-hover:text-white transition-all duration-500">
+                <div className="flex items-center justify-between w-full max-w-4xl px-4 sm:px-6 md:px-0 transition-transform duration-500 group-hover:scale-[1.02]">
+                   <span className={`font-serif italic text-lg md:text-3xl transition-colors duration-500 ${hoveredCategory === i ? 'text-[#C0F235]' : 'text-white/60 md:text-white/20'}`}>
+                     {(i+1).toString().padStart(2, '0')}
+                   </span>
+                   <h3 className="font-serif text-[13vw] md:text-8xl tracking-tight text-white md-text-outline transition-all duration-500">
                      {item.title}
                    </h3>
-                   <span className="text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-x-8 group-hover:translate-x-0 hidden md:block">
-                     Explore
+                   <span className={`text-xs md:text-sm uppercase tracking-widest transition-all duration-500 md:-translate-x-8 md:group-hover:translate-x-0 flex items-center gap-2 ${hoveredCategory === i ? 'opacity-100 text-[#C0F235] md:text-white' : 'opacity-100 md:opacity-0 text-white/40 md:text-white'}`}>
+                     <span className="hidden md:inline">Explore</span>
+                     <ArrowUpRight className="w-6 h-6 md:w-5 md:h-5 md:hidden" />
                    </span>
                 </div>
               </li>
@@ -327,12 +331,16 @@ export default function Home() {
 
       {/* Global CSS for text outline */}
       <style dangerouslySetInnerHTML={{__html: `
-        .text-outline {
-          -webkit-text-stroke: 1px rgba(255,255,255,0.2);
-          color: transparent;
-        }
-        .group:hover .text-outline {
-          -webkit-text-stroke: 0px;
+        @media (min-width: 768px) {
+          .md-text-outline {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+            color: transparent;
+          }
+          .active .md-text-outline,
+          .group:hover .md-text-outline {
+            -webkit-text-stroke: 0px;
+            color: white;
+          }
         }
       `}} />
     </main>
