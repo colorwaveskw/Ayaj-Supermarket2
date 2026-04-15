@@ -69,16 +69,27 @@ export default function Home() {
 
             <div className="flex flex-col md:flex-row flex-1 w-full gap-12 md:items-end justify-between">
               <ul className="flex flex-col gap-4 md:gap-8 font-serif text-[10vw] md:text-[6vw] leading-none tracking-tighter">
-                {['Home', 'About Us', 'Aisles', 'Visit'].map((item, i) => (
+                {[
+                  { name: 'Home', href: '#' },
+                  { name: 'About Us', href: '#about' },
+                  { name: 'Aisles', href: '#aisles' },
+                  { name: 'Visit', href: '#visit' }
+                ].map((item, i) => (
                   <motion.li
-                    key={item}
+                    key={item.name}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + (i * 0.1), duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="cursor-pointer hover:italic hover:text-[#C0F235] hover:translate-x-8 transition-all duration-500"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      if (item.href.startsWith('#')) {
+                        const el = document.querySelector(item.href);
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                   >
-                    {item}
+                    {item.name}
                   </motion.li>
                 ))}
               </ul>
@@ -136,7 +147,7 @@ export default function Home() {
       </section>
 
       {/* --- CREATIVE AWWWARDS EDITORIAL --- */}
-      <section className="relative py-32 md:py-48 px-6 md:px-12 w-full max-w-[1800px] mx-auto border-t border-black/5 mt-20">
+      <section id="about" className="relative py-32 md:py-48 px-6 md:px-12 w-full max-w-[1800px] mx-auto border-t border-black/5 mt-20">
 
         {/* TOP ROW: Massive Inline Media Typography */}
         <div className="mb-24 lg:mb-40 flex flex-col lg:flex-row">
@@ -215,7 +226,7 @@ export default function Home() {
       </section>
 
       {/* --- INTERACTIVE CATEGORY SHOWCASE --- (Hover to reveal bg) */}
-      <section className="relative py-20 md:py-32  bg-[#0A0A0A] text-[#FAF9F6] h-[120svh] min-h-[600px] md:min-h-[800px] flex flex-col justify-center overflow-hidden">
+      <section id="aisles" className="relative py-20 md:py-32  bg-[#0A0A0A] text-[#FAF9F6] h-[120svh] min-h-[600px] md:min-h-[800px] flex flex-col justify-center overflow-hidden">
 
         {/* Dynamic Backgrounds based on hover */}
         {products.map((item, i) => (
@@ -295,7 +306,7 @@ export default function Home() {
       </section>
 
       {/* --- FOOTER MAIN --- */}
-      <footer className="bg-[#0A0A0A] pt-32 pb-12 px-6 md:px-12 text-[#FAF9F6]">
+      <footer id="visit" className="bg-[#0A0A0A] pt-32 pb-12 px-6 md:px-12 text-[#FAF9F6]">
         <div className="max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between gap-16 border-b border-white/10 pb-24">
 
           <div className="md:w-1/3">
