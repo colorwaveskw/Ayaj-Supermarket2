@@ -296,7 +296,7 @@ export default function Home() {
         </motion.div>
 
         <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto z-10">
-          <a href="https://wa.me/96550616174" className="group bg-[#0A0A0A] text-white px-10 py-6 rounded-full flex items-center justify-center gap-4 text-sm md:text-base uppercase tracking-widest font-semibold hover:bg-[#C0F235] hover:text-[#0A0A0A] transition-all duration-300">
+          <a href="https://wa.me/96597863767" className="group bg-[#0A0A0A] text-white px-10 py-6 rounded-full flex items-center justify-center gap-4 text-sm md:text-base uppercase tracking-widest font-semibold hover:bg-[#C0F235] hover:text-[#0A0A0A] transition-all duration-300">
             <MessageCircleIcon className="w-5 h-5 group-hover:scale-110 transition-transform" /> WhatsApp Us
           </a>
           <a href="tel:+96550616174" className="group bg-transparent border border-[#0A0A0A]/20 text-[#0A0A0A] px-10 py-6 rounded-full flex items-center justify-center gap-4 text-sm md:text-base uppercase tracking-widest font-semibold hover:border-[#0A0A0A] transition-all duration-300">
